@@ -59,7 +59,7 @@ const config: NuxtConfig = {
       {
         hid: "twitter:title",
         name: "twitter:title",
-        content: pageImg,
+        content: pageTitle,
       },
       {
         hid: "twitter:description",
@@ -84,12 +84,12 @@ const config: NuxtConfig = {
       {
         hid: "twitter:image:alt",
         name: "twitter:image:alt",
-        content: pageImg,
+        content: pageTitle,
       },
       {
         hid: "og:title",
         property: "og:title",
-        content: pageTitleTemplate,
+        content: pageTitle,
       },
       {
         hid: "og:description",
@@ -109,7 +109,7 @@ const config: NuxtConfig = {
       {
         hid: "og:image:alt",
         property: "og:image:alt",
-        content: pageTitleTemplate,
+        content: pageTitle,
       },
 
       { "http-equiv": "pragma", content: "no-cache", property: "pragma" },
@@ -129,6 +129,9 @@ const config: NuxtConfig = {
         content: "#4e529a",
       },
     ],
+    link: [
+      {rel: "icon", type: "image/x-icon", href: "/favicon-dark.png"}
+    ]
   },
   /*
    ** Customize the progress-bar color
@@ -164,20 +167,7 @@ const config: NuxtConfig = {
     "@nuxtjs/google-gtag",
     "@inkline/nuxt",
     "nuxt-webfontloader",
-    [
-      "nuxt-i18n",
-      {
-        locales: [
-          {
-            code: "en",
-            iso: "en_US",
-            file: "en/translations.json",
-          },
-        ],
-        defaultLocale: "en",
-        langDir: "./locales/",
-      },
-    ],
+    "nuxt-i18n",
     "@nuxtjs/sentry",
   ],
   webfontloader: {
@@ -202,6 +192,15 @@ const config: NuxtConfig = {
     },
   },
   i18n: {
+    locales: [
+      {
+        code: "en",
+        iso: "en_US",
+        file: "en/translations.json",
+      },
+    ],
+    defaultLocale: "en",
+    langDir: "./locales/",
     vueI18n: {
       fallbackLocale: "en",
       messages: {
